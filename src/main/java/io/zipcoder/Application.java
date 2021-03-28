@@ -1,10 +1,11 @@
 package io.zipcoder;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Application {
-    ArrayList<Pet> pets = new ArrayList<Pet>();
+    private ArrayList<Pet> pets = new ArrayList<Pet>();
 
     public Application(){
 
@@ -41,6 +42,10 @@ public class Application {
                     "   Name:"+mainApp.pets.get(i).getName()+"   Sound:"+mainApp.pets.get(i).speak());
         }
 
+    }
+
+    public ArrayList<Pet> getPets(){
+        return pets;
     }
 
     public void addPet(Pet pet) {
