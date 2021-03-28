@@ -84,7 +84,6 @@ public class ApplicationTest {
         Cat cat2 = new Cat("jerry");
         Dog dog1 = new Dog("alpha");
         Fish fish1 = new Fish("jerry");
-        ArrayList<Pet> pets = new ArrayList<Pet>();
 
         mainApp.addPet(cat1);
         mainApp.addPet(cat2);
@@ -105,5 +104,30 @@ public class ApplicationTest {
         Assert.assertEquals(expected2,actual2);
         Assert.assertEquals(expected3,actual3);
         Assert.assertEquals(expected4,actual4);
+    }
+
+    @Test
+    public void comparePetTest3() {
+        Application mainApp = new Application();
+
+        Dog dog1 = new Dog("alpha");
+        Cat cat1 = new Cat("alpha");
+        Fish fish1 = new Fish("alpha");
+
+        mainApp.addPet(cat1);
+        mainApp.addPet(dog1);
+        mainApp.addPet(fish1);
+        Collections.sort(mainApp.getPets());
+
+        Pet expected1 = cat1;
+        Pet actual1 = mainApp.getPets().get(0);
+        Pet expected2 = dog1;
+        Pet actual2 = mainApp.getPets().get(1);
+        Pet expected3 = fish1;
+        Pet actual3 = mainApp.getPets().get(2);
+
+        Assert.assertEquals(expected1,actual1);
+        Assert.assertEquals(expected2,actual2);
+        Assert.assertEquals(expected3,actual3);
     }
 }
